@@ -25,7 +25,7 @@ public class WorkstaffScreenMixin {
 		return value;
 	}
 
-	@ModifyArg(method = "<init>", at = @At(value = "INVOKE", target = "Lde/dafuqs/spectrum/inventories/QuickNavigationGridScreen$GridEntry;item(Lnet/minecraft/item/Item;Ljava/lang/String;Lde/dafuqs/spectrum/inventories/QuickNavigationGridScreen$GridEntry$GridEntryCallback;)Lde/dafuqs/spectrum/inventories/QuickNavigationGridScreen$GridEntry;", ordinal = 7))
+	@ModifyArg(method = "<init>", at = @At(value = "INVOKE", target = "Lde/dafuqs/spectrum/inventories/QuickNavigationGridScreen$GridEntry;item(Lnet/minecraft/item/Item;Lnet/minecraft/text/Text;Lde/dafuqs/spectrum/inventories/QuickNavigationGridScreen$GridEntry$GridEntryCallback;)Lde/dafuqs/spectrum/inventories/QuickNavigationGridScreen$GridEntry;", ordinal = 7))
 	private Item enchancement$spectrum$replaceDisallowedEnchantmentsInit(Item value) {
 		if (!EnchancementUtil.isEnchantmentAllowed(Enchantments.FORTUNE)) {
 			return Items.BLAZE_POWDER;
@@ -33,7 +33,7 @@ public class WorkstaffScreenMixin {
 		return value;
 	}
 
-	@ModifyArg(method = "<clinit>", at = @At(value = "INVOKE", target = "Lde/dafuqs/spectrum/inventories/QuickNavigationGridScreen$GridEntry;item(Lnet/minecraft/item/Item;Ljava/lang/String;Lde/dafuqs/spectrum/inventories/QuickNavigationGridScreen$GridEntry$GridEntryCallback;)Lde/dafuqs/spectrum/inventories/QuickNavigationGridScreen$GridEntry;", ordinal = 2))
+	@ModifyArg(method = "<clinit>", at = @At(value = "INVOKE", target = "Lde/dafuqs/spectrum/inventories/QuickNavigationGridScreen$GridEntry;item(Lnet/minecraft/item/Item;Lnet/minecraft/text/Text;Lde/dafuqs/spectrum/inventories/QuickNavigationGridScreen$GridEntry$GridEntryCallback;)Lde/dafuqs/spectrum/inventories/QuickNavigationGridScreen$GridEntry;", ordinal = 2))
 	private static Item enchancement$spectrum$replaceDisallowedEnchantmentsCLInit(Item value) {
 		if (!EnchancementUtil.isEnchantmentAllowed(Enchantments.FORTUNE)) {
 			return Items.BLAZE_POWDER;

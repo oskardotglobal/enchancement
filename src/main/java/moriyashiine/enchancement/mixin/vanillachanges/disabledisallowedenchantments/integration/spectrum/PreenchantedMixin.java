@@ -6,7 +6,7 @@ package moriyashiine.enchancement.mixin.vanillachanges.disabledisallowedenchantm
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import de.dafuqs.spectrum.items.Preenchanted;
+import de.dafuqs.spectrum.api.item.Preenchanted;
 import moriyashiine.enchancement.common.util.EnchancementUtil;
 import net.minecraft.enchantment.Enchantment;
 import org.spongepowered.asm.mixin.Mixin;
@@ -17,7 +17,7 @@ import java.util.Map;
 
 @Mixin(value = Preenchanted.class, remap = false)
 public interface PreenchantedMixin {
-	@WrapOperation(method = "getDefaultEnchantedStack", at = @At(value = "INVOKE", target = "Lde/dafuqs/spectrum/items/Preenchanted;getDefaultEnchantments()Ljava/util/Map;"))
+	@WrapOperation(method = "getDefaultEnchantedStack", at = @At(value = "INVOKE", target = "Lde/dafuqs/spectrum/api/item/Preenchanted;getDefaultEnchantments()Ljava/util/Map;"))
 	private Map<Enchantment, Integer> enchancement$spectrum$disableDisallowedEnchantmentsGet(Preenchanted instance, Operation<Map<Enchantment, Integer>> original) {
 		Map<Enchantment, Integer> enchantments = original.call(instance);
 		Map<Enchantment, Integer> newMap = new LinkedHashMap<>();
@@ -29,7 +29,7 @@ public interface PreenchantedMixin {
 		return newMap;
 	}
 
-	@WrapOperation(method = "onlyHasPreEnchantments", at = @At(value = "INVOKE", target = "Lde/dafuqs/spectrum/items/Preenchanted;getDefaultEnchantments()Ljava/util/Map;"))
+	@WrapOperation(method = "onlyHasPreEnchantments", at = @At(value = "INVOKE", target = "Lde/dafuqs/spectrum/api/item/Preenchanted;getDefaultEnchantments()Ljava/util/Map;"))
 	private Map<Enchantment, Integer> enchancement$spectrum$disableDisallowedEnchantmentsPre(Preenchanted instance, Operation<Map<Enchantment, Integer>> original) {
 		Map<Enchantment, Integer> enchantments = original.call(instance);
 		Map<Enchantment, Integer> newMap = new LinkedHashMap<>();
